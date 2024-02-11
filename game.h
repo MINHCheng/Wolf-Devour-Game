@@ -6,8 +6,8 @@ using namespace std;
 class Players{
     private:
     //private variables
-    double x_coordinate;
-    double y_cooordinate;
+    float x_coordinate;
+    float y_cooordinate;
     int id;
     Players* next = nullptr;
     Players* prev = nullptr;
@@ -17,10 +17,10 @@ class Players{
     public:
     //public functions
     Players();
-    string spawn(Players*& head, double x, double y, int& number);
+    string spawn(Players*& head, float x, float y, int& number);
     int time(Players*& head, int t, int& number);
     void lunch(Players*& head, int& number);
     int getID();
-    int prtNear(Players*& head, int d);
+    void prtNear(Players*& head, int d, bool& check);
     string over();
 };

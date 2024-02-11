@@ -2,7 +2,7 @@
 #include <cmath>
 #include <iostream>
 #include <string>
-
+using namespace std;
 // implement classes' member functions here...
 Players::Players()
 {
@@ -11,7 +11,7 @@ Players::Players()
     this->x_coordinate = 0;
     this->y_cooordinate = 0;
 }
-string Players::spawn(Players *&head, double x, double y, int &number)
+string Players::spawn(Players *&head, float x, float y, int &number)
 {
     if (x < 0 || y < 0)
     {
@@ -51,11 +51,11 @@ int Players::time(Players *&head, int t, int &number)
     {
         time(head->next, t, number);
     }
-    int x = t * cos(atan2(this->y_cooordinate, this->x_coordinate));
-    int y = t * sin(atan2(this->y_cooordinate, this->x_coordinate));
+    int x = t * cos(atan2(head->y_cooordinate, head->x_coordinate));
+    int y = t * sin(atan2(head->y_cooordinate, head->x_coordinate));
     this->x_coordinate -= x;
     this->y_cooordinate -= y;
-    if (this->x_coordinate < 0 || this->x_coordinate >= 500 || this->y_cooordinate < 0 || this->y_cooordinate >= 500)
+    if (head->x_coordinate < 0 || head->x_coordinate >= 500 || head->y_cooordinate < 0 || head->y_cooordinate >= 500)
     {
         deletePlayer(head, head->prev, number);
     }
@@ -72,5 +72,13 @@ void Players::lunch(Players *&head, int &number)
         deletePlayer(head, head->prev, number);
     }
 }
-int Players::prtNear(Players*& head, int d) {return 1;}
-string Players::over() { return "hell"; }
+void Players::prtNear(Players*& head, int d, bool& check) {
+    if(head->next != nullptr){
+        prtNear(head->next, d, check);
+    }
+    if(sqrt(pow(head->x_coordinate, 2) + pow(head->y_cooordinate, 2)) < d){
+        cout << head->x_coordinate<< " " << head->y_cooordinate << " " ;
+        check = false;
+    }
+    return;
+    }

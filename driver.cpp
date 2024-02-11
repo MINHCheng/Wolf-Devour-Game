@@ -16,7 +16,7 @@ int main()
         cin >> command;
         if (command == "SPAWN")
         {
-            double x, y;
+            float x, y;
             cin >> x >> y;
             cout << head->spawn(head, x, y, count) << endl;
         }
@@ -30,13 +30,38 @@ int main()
         else if (command == "LUNCH")
         {
             head->lunch(head, number);
-            cout << number;
+            cout << number << endl;
         }
         else if (command == "NUM")
         {
-            cout << number;
+            cout << number << endl;
         }
+        else if (command == "PRT")
+        {
+            int d;
+            bool check = true;
+            bool& check_recurse = check;
+            cin >> d;
+
+            head->prtNear(head, d, check_recurse);
+
+            if (check){
+                cout << "no players found" << endl;
+            }
+            else{
+                cout << endl;
+            }
+        }
+        else if (command == "OVER"){
+            if(number != 0){
+                cout << "player win" << endl;
+                return 0;
+            }
+            else{
+                cout << "wolf wins" << endl;
+                return 0;
+            }
+        }
+        
     }
-    // your code goes here...
 }
-// hello
