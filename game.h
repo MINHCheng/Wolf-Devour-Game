@@ -18,7 +18,7 @@ class Players{
     //public functions
     string spawn(Players*& head, int x, int y, int& number);
     int time(Players*& head, int t, int& number);
-    void lunch(Players*& head);
+    void lunch(Players*& head, int& number);
     int getID();
     int prtNear();
     string over();
