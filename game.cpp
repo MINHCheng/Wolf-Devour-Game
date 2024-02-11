@@ -1,8 +1,10 @@
 #include "game.h"
 #include <cmath>
+#include <iostream>
+#include <string>
 
 // implement classes' member functions here...
-string Players::spawn(Players *&head, int x, int y, int &number)
+string Players::spawn(Players*& head, int x, int y, int& number)
 {
     if (x < 0 || y < 0)
     {
@@ -26,7 +28,6 @@ void Players::deletePlayer(Players *&head, Players *&prev, int& number)
     head = temp->next;
     head->prev = temp->prev;
     }
-    delete temp;
     number--;
     return;
 }
