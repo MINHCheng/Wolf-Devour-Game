@@ -4,7 +4,14 @@
 #include <string>
 
 // implement classes' member functions here...
-string Players::spawn(Players *&head, int x, int y, int &number)
+Players::Players()
+{
+    this->prev = nullptr;
+    this->next = nullptr;
+    this->x_coordinate = 0;
+    this->y_cooordinate = 0;
+}
+string Players::spawn(Players *&head, double x, double y, int &number)
 {
     if (x < 0 || y < 0)
     {
@@ -27,13 +34,9 @@ string Players::spawn(Players *&head, int x, int y, int &number)
 void Players::deletePlayer(Players *&head, Players *&prev, int &number)
 {
     Players *temp = head;
-    if (prev == nullptr)
+    head = temp->next;
+    if (prev != nullptr)
     {
-        head = temp->next;
-    }
-    else
-    {
-        head = temp->next;
         head->prev = temp->prev;
     }
     number--;
@@ -69,6 +72,5 @@ void Players::lunch(Players *&head, int &number)
         deletePlayer(head, head->prev, number);
     }
 }
-int Players::getID() { return 1; }
-int Players::prtNear() { return 1; }
+int Players::prtNear(Players*& head, int d) {return 1;}
 string Players::over() { return "hell"; }
