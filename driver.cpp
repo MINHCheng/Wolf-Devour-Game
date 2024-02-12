@@ -25,12 +25,12 @@ int main()
             double t;
             cin >> t;
             head->time(head, t, number);
-            cout <<  "num of players: " << number << endl;
+            cout << "num of players: " << number << endl;
         }
         else if (command == "LUNCH")
         {
             head->lunch(head, number);
-            cout <<  "num of players: " << number << endl;
+            cout << "num of players: " << number << endl;
         }
         else if (command == "NUM")
         {
@@ -40,31 +40,34 @@ int main()
         {
             double d;
             bool check = true;
-            bool& check_recurse = check;
+            bool &check_recurse = check;
             cin >> d;
 
             head->prtNear(head, d, check_recurse);
 
-            if (check){
+            if (check)
+            {
                 cout << "no players found" << endl;
             }
-            else{
+            else
+            {
                 cout << endl;
             }
         }
-        else if (command == "OVER"){
-            if(number != 0){
-                cout << "player win" << endl;
+        else if (command == "OVER")
+        {
+            if (number != 0)
+            {
+                cout << "players win" << endl;
+                head->deletePlayer(head);
                 return 0;
             }
-            else{
+            else
+            {
                 cout << "wolf wins" << endl;
+                head->deletePlayer(head);
                 return 0;
             }
         }
-        
-    }
-    while(head != nullptr){
-        head->deletePlayer(head);
     }
 }

@@ -135,3 +135,6 @@ void Players::deletePlayer(Players *&head)
     }
     return;
 }
+Players::~Players(){
+
+}

@@ -23,4 +23,5 @@ class Players{
     int getID();
     void prtNear(Players*& head, int d, bool& check);
     void deletePlayer(Players *&head);
+    ~Players();
 };
