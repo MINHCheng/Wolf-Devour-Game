@@ -16,7 +16,7 @@ int main()
         cin >> command;
         if (command == "SPAWN")
         {
-            float x, y;
+            double x, y;
             cin >> x >> y;
             cout << head->spawn(head, x, y, count) << endl;
         }
@@ -38,7 +38,7 @@ int main()
         }
         else if (command == "PRT")
         {
-            int d;
+            double d;
             bool check = true;
             bool& check_recurse = check;
             cin >> d;

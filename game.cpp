@@ -127,8 +127,11 @@ void Players::prtNear(Players *&head, int d, bool &check)
 void Players::deletePlayer(Players *&head)
 {
     Players *temp = head;
-    head = temp->next;
-    delete temp;
-    temp = nullptr;
+    while (head != nullptr)
+    {
+        head = temp->next;
+        delete temp;
+        temp = nullptr;
+    }
     return;
 }
