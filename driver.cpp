@@ -22,19 +22,19 @@ int main()
         }
         else if (command == "TIME")
         {
-            int t;
+            double t;
             cin >> t;
             head->time(head, t, number);
-            cout << number << endl;
+            cout <<  "num of players: " << number << endl;
         }
         else if (command == "LUNCH")
         {
             head->lunch(head, number);
-            cout << number << endl;
+            cout <<  "num of players: " << number << endl;
         }
         else if (command == "NUM")
         {
-            cout << number << endl;
+            cout << "num of players: " << number << endl;
         }
         else if (command == "PRT")
         {
@@ -63,5 +63,8 @@ int main()
             }
         }
         
+    }
+    while(head != nullptr){
+        head->deletePlayer(head);
     }
 }

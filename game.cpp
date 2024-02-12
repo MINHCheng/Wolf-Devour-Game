@@ -13,7 +13,7 @@ Players::Players()
 }
 string Players::spawn(Players *&head, float x, float y, int &number)
 {
-    if (x < 0 || y < 0)
+    if (x <= 0 || y <= 0)
     {
         return "failure";
     }
@@ -31,54 +31,104 @@ string Players::spawn(Players *&head, float x, float y, int &number)
     return "success";
 }
 
-void Players::deletePlayer(Players *&head, Players *&prev, int &number)
+void Players::deletePlayer(Players *&head, Players *&node, Players *&prev, int &number)
 {
-    Players *temp = head;
-    head = temp->next;
+    // Players *temp = node;
+    if (node == head)
+    {
+        head = node->next;
+    }
     if (prev != nullptr)
     {
-        head->prev = temp->prev;
+        prev->next = node->next;
+    }
+    if (node->next != nullptr)
+    {
+        node->next->prev = prev;
     }
     number--;
-    delete temp;
-    temp = nullptr;
+    delete node;
+    node = nullptr;
     return;
 }
 
-int Players::time(Players *&head, int t, int &number)
+int Players::time(Players *&head, double t, int &number)
 {
-    if (head->next != nullptr)
+    if (head == nullptr)
     {
-        time(head->next, t, number);
+        return number;
     }
-    int x = t * cos(atan2(head->y_cooordinate, head->x_coordinate));
-    int y = t * sin(atan2(head->y_cooordinate, head->x_coordinate));
-    this->x_coordinate -= x;
-    this->y_cooordinate -= y;
-    if (head->x_coordinate < 0 || head->x_coordinate >= 500 || head->y_cooordinate < 0 || head->y_cooordinate >= 500)
+    Players *temp = head;
+    while (temp != nullptr)
     {
-        deletePlayer(head, head->prev, number);
+        Players *nexttemp = temp->next;
+
+        double x = t * cos(atan2(temp->y_cooordinate, temp->x_coordinate));
+        double y = t * sin(atan2(temp->y_cooordinate, temp->x_coordinate));
+        temp->x_coordinate -= x;
+        temp->y_cooordinate -= y;
+        // cout << head->x_coordinate << endl;;
+        // cout << head->y_cooordinate << endl;
+
+        if (temp->x_coordinate < 0 || temp->x_coordinate >= 500 || temp->y_cooordinate < 0 || temp->y_cooordinate >= 500)
+        {
+            deletePlayer(head, temp, temp->prev, number);
+            if (nexttemp == nullptr)
+            {
+                return number;
+            }
+            else
+            {
+                temp = nexttemp;
+            }
+        }
+        else
+        {
+            temp = temp->next;
+        }
     }
     return number;
 }
 void Players::lunch(Players *&head, int &number)
 {
-    if (head->next != nullptr)
+    if (head == nullptr)
     {
-        lunch(head->next, number);
+        return;
     }
-    if (sqrt(pow(head->x_coordinate, 2) + pow(head->y_cooordinate, 2)) < 0)
+    Players *temp = head;
+    while (temp != nullptr)
     {
-        deletePlayer(head, head->prev, number);
+        if (sqrt(pow(temp->x_coordinate, 2) + pow(temp->y_cooordinate, 2)) < 1)
+        {
+            deletePlayer(head, temp, temp->prev, number);
+        }
+        if (temp == nullptr)
+        {
+            return;
+        }
+        temp = temp->next;
     }
 }
-void Players::prtNear(Players*& head, int d, bool& check) {
-    if(head->next != nullptr){
-        prtNear(head->next, d, check);
+void Players::prtNear(Players *&head, int d, bool &check)
+{
+    if (head == nullptr)
+    {
+        return;
     }
-    if(sqrt(pow(head->x_coordinate, 2) + pow(head->y_cooordinate, 2)) < d){
-        cout << head->x_coordinate<< " " << head->y_cooordinate << " " ;
+    Players *temp = head;
+    while (temp != nullptr)
+    {
+        cout << temp->x_coordinate << " " << temp->y_cooordinate << " ";
+        temp = temp->next;
         check = false;
     }
+}
+
+void Players::deletePlayer(Players *&head)
+{
+    Players *temp = head;
+    head = temp->next;
+    delete temp;
+    temp = nullptr;
     return;
-    }
+}
