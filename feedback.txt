@@ -1,0 +1,114 @@
+Project Name: ece250-w24-lab1-m22cheng
+
+
+===> Project Clone Result:
+Project Name: ece250-w24-lab1-m22cheng
+user: ece250-w24-lab1-m22cheng
+files: True
+Last Update Date: 2024-02-12T16:51:25.125-05:00
+Deadline: 2024-02-12, 11:59pm
+Penalty Percentage: 0
+Project ID: 87929
+
+===> Make Result: 
+success
+
+===> Marking Scheme - test cases
+******* TestCases: 90%
+   There are 9 test input files.
+** TestCases 1-8: 59%
+   Input files 01 through 08 test specific functionality. Each line in those files is worth 1 mark, for a total of 59 marks.
+** TestCases 9: 31%
+   Test 09 stress tests the code a huge number of times. It is worth 31 marks total, graded as follows:
+   +1: did not segfault
+   Then, there are 500K lines in that file:
+   +10: at least 50% of the lines correct
+   +20: at least 75% of the lines correct
+   +30: all lines correct
+   With no part marks (so if they get 65% of the lines correct they don’t get +15, just +10).
+******* Memory Leak : 10%
+   +10: if the total memory leak is zero
+
+
+===> Performance - time (CPU: AMD Ryzen 9 5900X 12-Core Processor):
+Project Name: ece250-w24-lab1-m22cheng
+Test 1 Result: success
+Test 1 Elapsed Time (s): 0.008415460586547852
+Test 2 Result: error
+Test 2 Elapsed Time (s): 0.16475486755371094
+Test 3 Result: error
+Test 3 Elapsed Time (s): 0.16937994956970215
+Test 4 Result: error
+Test 4 Elapsed Time (s): 0.16459989547729492
+Test 5 Result: error
+Test 5 Elapsed Time (s): 0.16489744186401367
+Test 6 Result: error
+Test 6 Elapsed Time (s): 0.16479849815368652
+Test 7 Result: success
+Test 7 Elapsed Time (s): 0.0043604373931884766
+Test 8 Result: error
+Test 8 Elapsed Time (s): 0.16475391387939453
+Test 9 Result: success
+Test 9 Elapsed Time (s): 1.0656282901763916
+
+
+===> Test cases - Scores:
+Project Name: ece250-w24-lab1-m22cheng
+Score01: 11
+Score02: 4
+Score03: 5
+Score04: 5
+Score05: 5
+Score06: 5
+Score07: 7
+Score08: 14
+Score09: 452679
+Total Score: 452735
+Mismatched Lines: 
+File: test01.out | Line:5 
+ Expected: [0.11, 0.21]
+ Output: [0.11, 0.21, 1.8, 2.4]
+
+File: test08.out | Line:11 
+Expected: noplayerfound
+Output: 71.481432.13264.487675.44674.487675.4467
+
+File: test08.out | Line:12 
+Expected: noplayerfound
+Output: 71.481432.13264.487675.44674.487675.4467
+Skipped Tests: 0
+
+
+===> STL Usage Results:
+Project Name: ece250-w24-lab1-m22cheng
+driver.cpp (STL Usage): 0
+game.h (STL Usage): 0
+game.cpp (STL Usage): 0
+Total STL Usage: 0
+
+
+===> OOP Principles Results:
+Project Name: ece250-w24-lab1-m22cheng
+Class Definition: Yes
+Access Modifiers: No Access Modifiers
+Encapsulation: Good
+Inheritance: Good
+Polymorphism: No Polymorphism
+Constructor/Destructor: No Constructor/Destructor
+
+
+===> References Result:
+Project Name: ece250-w24-lab1-m22cheng
+References: 
+
+
+===> Valgrind Results:
+Project Name: ece250-w24-lab1-m22cheng
+test01.in Log: N/A
+test01.in Memory Leak: N/A
+test07.in Log: N/A
+test07.in Memory Leak: N/A
+test08.in Log: Error: None
+test08.in Memory Leak: N/A
+Total Memory Leak: Error
+Valgrind Errors: test08.in: None
